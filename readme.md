@@ -1,5 +1,5 @@
-# MJencryptor
-## O MJencryptor é um arquivo de encriptação de autoria. Tem como função encriptar textos utilizando um algoritmo simples.
+# MJcodifier
+## O MJcodifier é um arquivo de encriptação de autoria. Tem como função encriptar textos utilizando um algoritmo simples.
 
 
 
