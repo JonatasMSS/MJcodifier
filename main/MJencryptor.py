@@ -16,6 +16,10 @@ import sys
 import argparse
 from typing import get_args
 
+def cripto(nome_arquivo = None):
+    biblioteca = {}
+
+
 def main():
     line_command = argparse.ArgumentParser(description= "|MJencryptor|\nEncriptador de arquivos texto")
     line_command.add_argument('-path','-p',required=True,help= "Caminho ou nome do arquivo (caso esteja no mesmo diretorio)")
@@ -26,4 +30,3 @@ def main():
     except FileNotFoundError:
         print("ARQUIVO NÃO ENCONTRADO\nVERIFIQUE O NOME OU O CAMINHO!")
 
-main()
