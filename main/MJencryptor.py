@@ -22,7 +22,13 @@ def cripto(arquivo = None,output = None, flag = None):
     descript = {"zx2":"a","cvl":"e","2=z":"i","=A|":"o","0+i":"u","=+=":" "}
     content_arq = open(arquivo,'r')
     out_file = open(output,'w+')
-    if flag == '-c':
+    if flag == 'c':
+        print("Caminho adicionado!")
+        anim = "="
+        for i in range(1,20):
+            print("Criptografando {}".format(anim*i))
+            time.sleep(0.1)
+        
         saida = content_arq.readlines()
         for line in saida:
             saida_line = line
@@ -31,7 +37,13 @@ def cripto(arquivo = None,output = None, flag = None):
                     saida_line = saida_line.replace(letter,cript[letter])
             print(saida_line)
             out_file.writelines(saida_line)
-    elif flag == '-d':
+        print("="*15,"Concluido!","="*15)
+    elif flag == 'd':
+        print("Caminho adicionado!")
+        anim = "="
+        for i in range(1,20):
+            print("Descriptografando! {}".format(anim*i))
+            time.sleep(0.1)
         saida = content_arq.readlines()
         for line in saida:
             saida_line = line
@@ -42,6 +54,7 @@ def cripto(arquivo = None,output = None, flag = None):
                     saida_line = line.replace(value_key,descript[value_key])
                     line = saida_line
             out_file.writelines(saida_line)
+        print("="*15,"Concluido!","="*15)
     else:
         print("Insira uma flag de codificação(-c) ou descodificação(-d)!")
 
@@ -49,28 +62,11 @@ def main():
     line_command = argparse.ArgumentParser(description= "|MJencryptor|\nEncriptador de arquivos texto")
     line_command.add_argument('-path','-p',required=True,help= "Caminho ou nome do arquivo (caso esteja no mesmo diretorio)")
     line_command.add_argument('-output','-o', help='Cria um arquivo contendo o texto criptografado!')
+    line_command.add_argument('-mode','-m',help='Escolhe se vai codificar(-c) ou descodificar(-d)')
     args = line_command.parse_args()
     try:
-        cripto(str(args.path),str(args.output))
-        print("Caminho adicionado!")
-        anim = "="
-        for i in range(1,20):
-            print("Criptografando {}".format(anim*i))
-            time.sleep(0.1)
-        print("="*15,"Concluido!","="*15)
+        cripto(str(args.path),str(args.output),args.mode)
+        
     except FileNotFoundError:
         print("ARQUIVO NÃO ENCONTRADO\nVERIFIQUE O NOME OU O CAMINHO!")
-cripto('saida.txt','descriptografado.txt','-d')
-'''
-descript = {"zx2":"a","cvl":"e","2=z":"i","=A|":"o","0+i":"u","=+":" "}
-string = "zx2lcvlxzx2ndr=A|"
-saida = ''
-
-for key in descript:
-    if key in string:
-        pos = string.find(key)
-        new_value = string[pos:pos+3]
-        saida = string.replace(new_value, descript[new_value])
-        string = saida
-print(saida)
-'''
+main()
