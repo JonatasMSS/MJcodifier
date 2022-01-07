@@ -2,6 +2,7 @@
 Encriptador de Textos
 Criado por Jonatas Miguel
 
+Tem como função codificar arquivos de texto usando dicionarios python
 
 '''
 
@@ -18,6 +19,7 @@ from typing import get_args
 import time
 
 def cripto(arquivo = None,output = None, flag = None):
+    
     cript = {"a":"zx2","e":"cvl","i":"2=z","o":"=A|","u":"0+i"," ":"=+="}
     descript = {"zx2":"a","cvl":"e","2=z":"i","=A|":"o","0+i":"u","=+=":" "}
     content_arq = open(arquivo,'r')
@@ -56,13 +58,13 @@ def cripto(arquivo = None,output = None, flag = None):
             out_file.writelines(saida_line)
         print("="*15,"Concluido!","="*15)
     else:
-        print("Insira uma flag de codificação(-c) ou descodificação(-d)!")
+        print("Insira uma flag de codificação(c) ou descodificação(d)!")
 
 def main():
-    line_command = argparse.ArgumentParser(description= "|MJencryptor|\nEncriptador de arquivos texto")
+    line_command = argparse.ArgumentParser(description= "|MJcodifier| Codificador de arquivos texto")
     line_command.add_argument('-path','-p',required=True,help= "Caminho ou nome do arquivo (caso esteja no mesmo diretorio)")
     line_command.add_argument('-output','-o', help='Cria um arquivo contendo o texto criptografado!')
-    line_command.add_argument('-mode','-m',help='Escolhe se vai codificar(-c) ou descodificar(-d)')
+    line_command.add_argument('-mode','-m',help='Escolhe se vai codificar(c) ou descodificar(d)')
     args = line_command.parse_args()
     try:
         cripto(str(args.path),str(args.output),args.mode)
