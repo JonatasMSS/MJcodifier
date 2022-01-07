@@ -1,6 +1,7 @@
 # MJcodifier
 ## O MJcodifier é um arquivo de encriptação de autoria. Tem como função encriptar textos utilizando um algoritmo simples.
 
+## Explicação do algoritmo
 
+O codigo associa cada vogal presente no texto que será alterado a uma sequência de caracteres.
 
-### O Projeto ainda está em desenvolvimento :space_invaders
