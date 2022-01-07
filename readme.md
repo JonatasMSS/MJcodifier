@@ -4,4 +4,5 @@
 ## Explicação do algoritmo
 
 O codigo associa cada vogal presente no texto que será alterado a uma sequência de caracteres.
+Para mais especificações do código, execute python MJencryptor -h.
 
